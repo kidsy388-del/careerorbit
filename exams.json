@@ -1,0 +1,107 @@
+[
+  {
+    "name": "UPSC Civil Services Examination",
+    "org": "Union Public Service Commission",
+    "type": "government",
+    "cat": "UPSC",
+    "desc": "India's premier civil services examination for IAS, IPS, IFS and allied services. Conducted annually in three stages: Prelims, Mains and Interview."
+  },
+  {
+    "name": "MPSC State Services Examination",
+    "org": "Maharashtra Public Service Commission",
+    "type": "government",
+    "cat": "MPSC",
+    "desc": "State-level civil services examination for administrative posts within Maharashtra government departments."
+  },
+  {
+    "name": "SSC CGL",
+    "org": "Staff Selection Commission",
+    "type": "government",
+    "cat": "SSC",
+    "desc": "Combined Graduate Level examination for group B and C posts in central government ministries and departments."
+  },
+  {
+    "name": "SSC CHSL",
+    "org": "Staff Selection Commission",
+    "type": "government",
+    "cat": "SSC",
+    "desc": "Combined Higher Secondary Level examination for clerical and data entry posts in central government offices."
+  },
+  {
+    "name": "IBPS PO & Clerk",
+    "org": "Institute of Banking Personnel Selection",
+    "type": "government",
+    "cat": "Banking",
+    "desc": "Common recruitment process for Probationary Officer and Clerk posts across public sector banks."
+  },
+  {
+    "name": "RRB NTPC",
+    "org": "Railway Recruitment Board",
+    "type": "government",
+    "cat": "Railways",
+    "desc": "Non-Technical Popular Categories recruitment for various administrative posts across Indian Railways."
+  },
+  {
+    "name": "SBI PO & Clerk",
+    "org": "State Bank of India",
+    "type": "government",
+    "cat": "Banking",
+    "desc": "Recruitment examination for Probationary Officer and Junior Associate posts at State Bank of India."
+  },
+  {
+    "name": "Software Engineer",
+    "org": "Private Sector",
+    "type": "jobs",
+    "cat": "IT Jobs",
+    "desc": "Openings across product and service-based companies for freshers and experienced developers."
+  },
+  {
+    "name": "Electrical Engineer",
+    "org": "Infrastructure & Manufacturing",
+    "type": "jobs",
+    "cat": "Engineering",
+    "desc": "Roles in power, infrastructure and manufacturing companies for electrical engineering graduates."
+  },
+  {
+    "name": "Graduate Engineer Trainee",
+    "org": "Private Sector",
+    "type": "jobs",
+    "cat": "Engineering",
+    "desc": "Entry-level trainee programmes offered by core engineering and manufacturing companies."
+  },
+  {
+    "name": "Data Analyst",
+    "org": "Private Sector",
+    "type": "jobs",
+    "cat": "IT Jobs",
+    "desc": "Roles focused on data analysis, reporting and business intelligence across industries."
+  },
+  {
+    "name": "JEE Main",
+    "org": "National Testing Agency",
+    "type": "entrance",
+    "cat": "Engineering",
+    "desc": "National-level entrance examination for admission to NITs, IIITs and other centrally funded institutions."
+  },
+  {
+    "name": "NEET UG",
+    "org": "National Testing Agency",
+    "type": "entrance",
+    "cat": "Medical",
+    "desc": "National entrance examination for admission to MBBS, BDS and other undergraduate medical courses."
+  },
+  {
+    "name": "CAT",
+    "org": "Indian Institutes of Management",
+    "type": "entrance",
+    "cat": "Management",
+    "desc": "Computer-based entrance test for admission to MBA programmes at IIMs and other top B-schools."
+  },
+  {
+    "name": "GATE",
+    "org": "IITs & IISc",
+    "type": "entrance",
+    "cat": "Engineering",
+    "desc": "Graduate Aptitude Test in Engineering, used for M.Tech admissions and PSU recruitment."
+  }
+]
