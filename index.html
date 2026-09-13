@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CareerOrbit — Every Exam. Every Job. Every Opportunity.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0f1f3d;
+  --navy-deep:#0a1530;
+  --marigold:#e08a1e;
+  --marigold-deep:#c4720f;
+  --paper:#f7f5f0;
+  --ink:#1a2438;
+  --ink-soft:#5a6478;
+  --line:#e2ddd0;
+  --white:#ffffff;
+  --success:#2ecc71;
+  --error:#e74c3c;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.55;
+}
+h1,h2,h3{font-family:'Fraunces',serif}
+a{color:inherit}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+:focus-visible{outline:2px solid var(--marigold);outline-offset:2px}
+
+/* Header */
+header{background:var(--navy);color:var(--white);position:sticky;top:0;z-index:50;border-bottom:1px solid rgba(255,255,255,.08)}
+.header-inner{max-width:1120px;margin:auto;padding:18px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.brand{display:flex;flex-direction:column}
+.brand-name{font-family:'Fraunces',serif;font-size:22px;font-weight:600;letter-spacing:.2px}
+.brand-name em{font-style:normal;color:var(--marigold)}
+.brand-tag{font-size:11.5px;color:#aab4c9;margin-top:2px}
+nav{display:flex;flex-wrap:wrap;gap:4px}
+nav button{color:#c7cfe0;padding:9px 14px;border-radius:6px;font-size:14px;font-weight:500;transition:background .15s,color .15s;cursor:pointer}
+nav button:hover{background:rgba(255,255,255,.08);color:var(--white)}
+nav button.active{background:var(--marigold);color:var(--navy-deep);font-weight:600}
+
+main{max-width:1120px;margin:auto;padding:0 20px 60px}
+
+/* Hero */
+.hero{padding:64px 0 48px;border-bottom:1px solid var(--line);margin-bottom:44px}
+.hero-eyebrow{color:var(--marigold-deep);font-size:14px;font-weight:600;margin-bottom:14px}
+.hero h1{font-size:clamp(32px,5vw,52px);font-weight:600;line-height:1.08;max-width:16ch;color:var(--navy)}
+.hero p{margin-top:18px;max-width:52ch;color:var(--ink-soft);font-size:16.5px}
+.search{display:flex;gap:0;margin-top:30px;max-width:560px;border:1.5px solid var(--navy);border-radius:8px;overflow:hidden;background:var(--white)}
+.search input{flex:1;min-width:0;border:0;padding:14px 16px;outline:none;font-size:15px;font-family:inherit}
+.search button{background:var(--navy);color:var(--white);padding:14px 22px;font-weight:600;font-size:14.5px;white-space:nowrap;transition:background .15s;cursor:pointer}
+.search button:hover{background:var(--navy-deep)}
+.hero-stats{display:flex;gap:36px;margin-top:36px;flex-wrap:wrap}
+.hero-stats div strong{display:block;font-family:'Fraunces',serif;font-size:26px;color:var(--navy)}
+.hero-stats div span{font-size:12.5px;color:var(--ink-soft)}
+
+/* Section headings */
+.section-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:20px;gap:16px;flex-wrap:wrap}
+.section-head h2{font-size:24px;font-weight:600;color:var(--navy)}
+.section-head p{color:var(--ink-soft);font-size:13.5px}
+
+/* Category cards */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:48px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:26px 22px;transition:border-color .15s,transform .15s;cursor:pointer}
+.card:hover{border-color:var(--marigold);transform:translateY(-2px)}
+.card .mark{width:38px;height:3px;background:var(--marigold);margin-bottom:16px}
+.card h3{font-size:18px;font-weight:600;margin-bottom:8px;color:var(--navy)}
+.card p{font-size:13.5px;color:var(--ink-soft);margin-bottom:16px}
+.card .go{color:var(--marigold-deep);font-weight:600;font-size:13.5px}
+
+/* Listing */
+.listing-tools{margin-bottom:22px}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.filters button{padding:8px 14px;border:1px solid var(--line);background:var(--white);border-radius:20px;font-size:13px;color:var(--ink-soft);cursor:pointer;transition:all .15s}
+.filters button:hover{border-color:var(--navy);color:var(--navy)}
+.filters button.active{background:var(--navy);color:var(--white);border-color:var(--navy)}
+
+.notice{display:flex;align-items:flex-start;gap:16px;background:var(--white);border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin-bottom:12px}
+.notice .type-tag{font-size:11px;font-weight:700;letter-spacing:.3px;color:var(--marigold-deep);background:#fbeee0;padding:4px 8px;border-radius:5px;white-space:nowrap;margin-top:2px}
+.notice-body{flex:1;min-width:0}
+.notice-body h3{font-size:16px;font-weight:600;color:var(--navy);margin-bottom:3px}
+.notice-body p{font-size:13px;color:var(--ink-soft)}
+.notice .cat{display:inline-block;margin-top:8px;font-size:11.5px;color:var(--ink-soft);border:1px solid var(--line);padding:2px 8px;border-radius:5px}
+.notice .view{align-self:center;color:var(--navy);font-weight:600;font-size:13.5px;border-bottom:1.5px solid var(--marigold);padding-bottom:1px;white-space:nowrap;cursor:pointer}
+
+.empty{padding:40px 20px;text-align:center;color:var(--ink-soft);font-size:14px;background:var(--white);border:1px dashed var(--line);border-radius:10px}
+
+.loading{text-align:center;padding:40px 20px;color:var(--ink-soft)}
+.spinner{display:inline-block;width:24px;height:24px;border:3px solid var(--line);border-top-color:var(--marigold);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Detail page */
+.back{color:var(--ink-soft);font-size:13.5px;font-weight:600;margin-bottom:18px;display:inline-block;cursor:pointer}
+.back:hover{color:var(--navy)}
+.detail{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:34px 30px}
+.detail .type-tag{font-size:11px;font-weight:700;color:var(--marigold-deep);background:#fbeee0;padding:4px 9px;border-radius:5px}
+.detail h2{font-size:28px;font-weight:600;color:var(--navy);margin:16px 0 12px}
+.detail>p{color:var(--ink-soft);font-size:15px;max-width:60ch}
+.meta{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);margin:26px 0;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.meta div{background:var(--white);padding:16px 18px;font-size:12px;color:var(--ink-soft)}
+.meta strong{display:block;color:var(--navy);margin-top:6px;font-size:14.5px;font-family:'Fraunces',serif;font-weight:600}
+.disclaimer{font-size:13px;color:var(--ink-soft);background:var(--paper);border-left:3px solid var(--marigold);padding:12px 16px;border-radius:4px;margin-bottom:24px}
+.btn-primary{background:var(--navy);color:var(--white);padding:13px 24px;border-radius:7px;font-weight:600;font-size:14.5px;transition:background .15s;cursor:pointer}
+.btn-primary:hover{background:var(--navy-deep)}
+
+/* Contact */
+.contact-wrap{max-width:600px}
+.contact-wrap>p{color:var(--ink-soft);margin-bottom:24px;font-size:14.5px}
+.form{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:30px}
+.form label{display:block;font-weight:600;font-size:13px;margin:0 0 6px;color:var(--navy)}
+.form .field{margin-bottom:18px}
+.form input,.form textarea,.form select{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:7px;font-size:14.5px;font-family:inherit;outline:none;transition:border-color .15s}
+.form input:focus,.form textarea:focus,.form select:focus{border-color:var(--navy)}
+.form textarea{min-height:110px;resize:vertical}
+.form-msg{margin-top:14px;font-size:13.5px;font-weight:600}
+.form-msg.success{color:var(--success)}
+.form-msg.error{color:var(--error)}
+
+footer{background:var(--navy-deep);color:#8f9ab3;padding:40px 20px 28px;margin-top:20px}
+.footer-inner{max-width:1120px;margin:auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px}
+.footer-inner h3{color:var(--white);font-family:'Fraunces',serif;font-weight:600;font-size:18px;margin-bottom:8px}
+.footer-inner p{font-size:12.5px;line-height:1.9}
+
+@media(max-width:720px){
+  .cards{grid-template-columns:1fr}
+  .hero{padding:44px 0 36px}
+  nav{width:100%;justify-content:flex-start;overflow-x:auto}
+  .meta{grid-template-columns:1fr}
+  .notice{flex-wrap:wrap}
+  .notice .view{margin-left:auto}
+  .footer-inner{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <span class="brand-name">Career<em>Orbit</em></span>
+      <span class="brand-tag">Every Exam. Every Job. Every Opportunity.</span>
+    </div>
+    <nav id="nav" role="navigation" aria-label="Main navigation">
+      <button class="active" onclick="showPage('home',this)" aria-current="page">Home</button>
+      <button onclick="showPage('government',this)" aria-label="View Government Exams">Government Exams</button>
+      <button onclick="showPage('jobs',this)" aria-label="View Private Jobs">Private Jobs</button>
+      <button onclick="showPage('entrance',this)" aria-label="View Entrance Exams">Entrance Exams</button>
+      <button onclick="showPage('updates',this)" aria-label="View Latest Updates">Latest Updates</button>
+      <button onclick="showPage('contact',this)" aria-label="Contact CareerOrbit">Contact</button>
+    </nav>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <h3>CareerOrbit</h3>
+      <p>Government exams, private jobs and entrance exams —<br>all in one place, for every state in India.</p>
+    </div>
+    <div>
+      <p>Government Exams &nbsp;·&nbsp; Private Jobs<br>Entrance Exams &nbsp;·&nbsp; Latest Updates</p>
+      <p style="margin-top:10px">© 2026 CareerOrbit. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Data array - will be populated from exams.json
+let exams = [];
+
+const app = document.getElementById("app");
+window.currentList = exams;
+
+// Load exams data from JSON file
+async function loadExams() {
+  try {
+    const response = await fetch('exams.json');
+    if (!response.ok) throw new Error('Failed to load exams');
+    exams = await response.json();
+    window.currentList = exams;
+    home(); // Show home page after loading data
+  } catch (error) {
+    console.error('Error loading exams:', error);
+    app.innerHTML = '<div class="empty">Error loading data. Please refresh the page.</div>';
+  }
+}
+
+function escapeHTML(text) {
+  return String(text).replace(/[&<>"']/g, c => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  }[c]));
+}
+
+function typeIcon(type) {
+  return type === "government" ? "Govt" : type === "jobs" ? "Job" : "Exam";
+}
+
+function showPage(page, button) {
+  document.querySelectorAll("nav button").forEach(b => b.classList.remove("active"));
+  document.querySelectorAll("nav button").forEach(b => b.removeAttribute("aria-current"));
+  if (button) {
+    button.classList.add("active");
+    button.setAttribute("aria-current", "page");
+  }
+  window.scrollTo({ top: 0, behavior: "smooth" });
+
+  if (page === "home") return home();
+  if (page === "contact") return contact();
+  if (page === "updates") return listing("Latest Updates", "Recently added exams, jobs and entrance notifications.", exams);
+
+  const titles = { government: "Government Exams", jobs: "Private Jobs", entrance: "Entrance Exams" };
+  const subs = {
+    government: "Recruitment and civil services examinations across central and state government bodies.",
+    jobs: "Openings and career paths in the private sector, curated by role and industry.",
+    entrance: "Entrance tests for admission to engineering, medical and management institutions."
+  };
+  listing(titles[page], subs[page], exams.filter(e => e.type === page));
+}
+
+function home() {
+  app.innerHTML = `
+  <section class="hero">
+    <div class="hero-eyebrow">India's career information platform</div>
+    <h1>Find your next government exam, job or entrance test.</h1>
+    <p>Government recruitment, private sector openings and entrance examinations, organised in one place so you never miss a notification.</p>
+    <div class="search">
+      <input id="search" placeholder="Search exams, jobs or careers..." aria-label="Search exams, jobs or careers">
+      <button onclick="searchAll()" aria-label="Search button">Search</button>
+    </div>
+    <div class="hero-stats">
+      <div><strong>${exams.filter(e => e.type === 'government').length}+</strong><span>Government exams listed</span></div>
+      <div><strong>${exams.filter(e => e.type === 'jobs').length}+</strong><span>Private job categories</span></div>
+      <div><strong>${exams.filter(e => e.type === 'entrance').length}+</strong><span>Entrance examinations</span></div>
+    </div>
+  </section>
+
+  <div class="section-head"><h2>Explore by category</h2></div>
+  <div class="cards">
+    <div class="card" onclick="showPage('government')" role="button" tabindex="0" onkeypress="if(event.key==='Enter')showPage('government')">
+      <div class="mark"></div>
+      <h3>Government Exams</h3>
+      <p>UPSC, MPSC, SSC, Banking, Railways and more central and state recruitment.</p>
+      <button class="go" onclick="showPage('government')" aria-label="View Government Exams">View exams →</button>
+    </div>
+    <div class="card" onclick="showPage('jobs')" role="button" tabindex="0" onkeypress="if(event.key==='Enter')showPage('jobs')">
+      <div class="mark"></div>
+      <h3>Private Jobs</h3>
+      <p>Openings across IT, engineering, manufacturing and core industry roles.</p>
+      <button class="go" onclick="showPage('jobs')" aria-label="View Private Jobs">View jobs →</button>
+    </div>
+    <div class="card" onclick="showPage('entrance')" role="button" tabindex="0" onkeypress="if(event.key==='Enter')showPage('entrance')">
+      <div class="mark"></div>
+      <h3>Entrance Exams</h3>
+      <p>Engineering, medical and management entrance tests for every stream.</p>
+      <button class="go" onclick="showPage('entrance')" aria-label="View Entrance Exams">View exams →</button>
+    </div>
+  </div>
+
+  <div class="section-head"><h2>Featured</h2><p>A quick look at what's trending right now</p></div>
+  <div id="featured">${exams.slice(0, 4).map(item).join("")}</div>`;
+}
+
+function listing(title, subtitle, list) {
+  window.currentList = list;
+  app.innerHTML = `
+  <div class="section-head"><h2>${title}</h2></div>
+  <p style="color:var(--ink-soft);font-size:14px;margin-bottom:18px;max-width:60ch">${subtitle}</p>
+  <div class="listing-tools">
+    <div class="search" style="max-width:100%">
+      <input id="search" placeholder="Search within ${title.toLowerCase()}..." oninput="filterList()" aria-label="Search within ${title.toLowerCase()}">
+      <button onclick="filterList()" aria-label="Search button">Search</button>
+    </div>
+    <div class="filters" role="group" aria-label="Filter by category">
+      <button class="active" onclick="renderFiltered('all',this)">All</button>
+      <button onclick="renderFiltered('UPSC',this)">UPSC</button>
+      <button onclick="renderFiltered('MPSC',this)">MPSC</button>
+      <button onclick="renderFiltered('SSC',this)">SSC</button>
+      <button onclick="renderFiltered('Banking',this)">Banking</button>
+      <button onclick="renderFiltered('Engineering',this)">Engineering</button>
+    </div>
+  </div>
+  <div id="results" role="region" aria-label="Search results">${list.length ? list.map(item).join("") : '<div class="empty">No listings in this category yet.</div>'}</div>`;
+}
+
+function item(e) {
+  return `<div class="notice">
+    <span class="type-tag" aria-label="${typeIcon(e.type)}">${typeIcon(e.type)}</span>
+    <div class="notice-body">
+      <h3>${escapeHTML(e.name)}</h3>
+      <p>${escapeHTML(e.org)}</p>
+      <span class="cat">${escapeHTML(e.cat)}</span>
+    </div>
+    <button class="view" onclick="details('${escapeHTML(e.name)}')" aria-label="View details for ${escapeHTML(e.name)}">View →</button>
+  </div>`;
+}
+
+function filterList() {
+  const q = (document.getElementById("search")?.value || "").toLowerCase();
+  const list = (window.currentList || exams).filter(e => (e.name + " " + e.org + " " + e.cat).toLowerCase().includes(q));
+  document.getElementById("results").innerHTML = list.length ? list.map(item).join("") : '<div class="empty">No results found. Try a different search term.</div>';
+}
+
+function renderFiltered(cat, button) {
+  document.querySelectorAll(".filters button").forEach(b => b.classList.remove("active"));
+  if (button) button.classList.add("active");
+  let list = window.currentList || exams;
+  if (cat !== "all") list = list.filter(e => e.cat === cat);
+  document.getElementById("results").innerHTML = list.length ? list.map(item).join("") : '<div class="empty">No listings in this category yet.</div>';
+}
+
+function searchAll() {
+  const q = document.getElementById("search").value.toLowerCase();
+  const list = exams.filter(e => (e.name + " " + e.org + " " + e.cat).toLowerCase().includes(q));
+  document.querySelectorAll("nav button").forEach(b => b.classList.remove("active"));
+  listing("Search Results", "Showing results across all categories.", list);
+}
+
+function details(name) {
+  const e = exams.find(x => x.name === name);
+  if (!e) return;
+  app.innerHTML = `
+  <button class="back" onclick="showPage('${e.type}')" aria-label="Back to ${e.type} listings">← Back to listing</button>
+  <div class="detail">
+    <span class="type-tag" aria-label="${typeIcon(e.type)}">${typeIcon(e.type)}</span>
+    <h2>${escapeHTML(e.name)}</h2>
+    <p>${escapeHTML(e.desc)}</p>
+    <div class="meta">
+      <div>Organisation<strong>${escapeHTML(e.org)}</strong></div>
+      <div>Category<strong>${escapeHTML(e.cat)}</strong></div>
+      <div>Eligibility<strong>Check official notification</strong></div>
+      <div>Important dates<strong>Verify on official website</strong></div>
+    </div>
+    <div class="disclaimer">This is a sample listing. Always verify vacancies, eligibility, fees and deadlines on the official website before applying.</div>
+    <button class="btn-primary" onclick="showPage('contact')" aria-label="Contact CareerOrbit">Contact CareerOrbit</button>
+  </div>`;
+}
+
+function contact() {
+  app.innerHTML = `
+  <div class="contact-wrap">
+    <div class="section-head"><h2>Contact us</h2></div>
+    <p>Have a question, or want to share an exam or job update? Send us a message and we'll get back to you.</p>
+    <div class="form" role="form" aria-label="Contact form">
+      <div class="field">
+        <label for="c-name">Your name</label>
+        <input id="c-name" placeholder="Enter your name" required>
+      </div>
+      <div class="field">
+        <label for="c-email">Email address</label>
+        <input id="c-email" type="email" placeholder="Enter your email" required aria-describedby="c-msg">
+      </div>
+      <div class="field">
+        <label for="c-type">Enquiry type</label>
+        <select id="c-type" required>
+          <option>General enquiry</option>
+          <option>Exam notification</option>
+          <option>Private job</option>
+          <option>Website feedback</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="c-message">Message</label>
+        <textarea id="c-message" placeholder="Write your message..." required></textarea>
+      </div>
+      <button class="btn-primary" style="width:100%" onclick="sendMessage()" aria-label="Send message">Send message</button>
+      <p class="form-msg" id="c-msg"></p>
+    </div>
+  </div>`;
+}
+
+function sendMessage() {
+  const n = document.getElementById("c-name").value.trim();
+  const e = document.getElementById("c-email").value.trim();
+  const t = document.getElementById("c-type").value;
+  const m = document.getElementById("c-message").value.trim();
+  const msg = document.getElementById("c-msg");
+
+  if (!n || !e || !m) {
+    msg.textContent = "Please fill all required fields.";
+    msg.className = "form-msg error";
+    return;
+  }
+
+  // Submit to Formspree
+  const formData = new FormData();
+  formData.append("name", n);
+  formData.append("email", e);
+  formData.append("enquiry_type", t);
+  formData.append("message", m);
+
+  const submitBtn = document.querySelector(".btn-primary");
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Sending...";
+
+  fetch("https://formspree.io/f/mnqynodv", {
+    method: "POST",
+    body: formData,
+    headers: {
+      Accept: "application/json"
+    }
+  })
+    .then(response => {
+      if (response.ok) {
+        msg.textContent = "�� Thank you, " + n + "! Your message has been sent successfully. We'll get back to you soon.";
+        msg.className = "form-msg success";
+        document.getElementById("c-name").value = "";
+        document.getElementById("c-email").value = "";
+        document.getElementById("c-message").value = "";
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Send message";
+      } else {
+        throw new Error("Form submission failed");
+      }
+    })
+    .catch(error => {
+      msg.textContent = "Error sending message. Please try again.";
+      msg.className = "form-msg error";
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Send message";
+      console.error("Error:", error);
+    });
+}
+
+// Load exams on page load
+loadExams();
+</script>
+</body>
+</html>
